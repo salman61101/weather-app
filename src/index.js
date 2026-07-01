@@ -1,3 +1,8 @@
 import "./style.css";
 
-console.log("Weather App Started");
+import { setupSearch } from "./dom";
+import { displayWelcome } from "./ui";
+
+displayWelcome();
+
+setupSearch();
