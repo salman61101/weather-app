@@ -2,11 +2,19 @@ export function processWeatherData(data) {
 
     return {
 
-        city: data.city,
+        city: data.resolvedAddress,
 
-        temperature: data.temperature,
+        temperature: data.currentConditions.temp,
 
-        condition: data.condition
+        condition: data.currentConditions.conditions,
+
+        humidity: data.currentConditions.humidity,
+
+        wind: data.currentConditions.windspeed,
+
+        feelsLike: data.currentConditions.feelslike,
+
+        icon: data.currentConditions.icon
 
     };
 

@@ -1,19 +1,34 @@
 import { processWeatherData } from "./weather";
 
+const API_KEY = "H8NAUP5LSN9V4EZ5V49THT8LZ";
+
 export async function fetchWeather(city) {
 
-    console.log(`Searching for ${city}...`);
+    const url =
+        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${API_KEY}&contentType=json`;
 
-    const fakeData = {
+    try {
 
-        city,
+        const response = await fetch(url);
 
-        temperature: 30,
+        if (!response.ok) {
 
-        condition: "Sunny"
+            throw new Error("City not found");
 
-    };
+        }
 
-    return processWeatherData(fakeData);
+        const data = await response.json();
+
+        return processWeatherData(data);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        throw error;
+
+    }
 
 }

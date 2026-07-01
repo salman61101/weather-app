@@ -17,12 +17,20 @@ export function setupSearch() {
 
         if (!city) return;
 
-        const weather =
-            await fetchWeather(city);
+        try {
 
-        displayWeather(weather);
+            const weather =
+                await fetchWeather(city);
 
-        input.value = "";
+            displayWeather(weather);
+
+        }
+
+        catch {
+
+            alert("City not found.");
+
+        }
 
     });
 

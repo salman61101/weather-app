@@ -20,18 +20,30 @@ export function displayWelcome() {
 
 export function displayWeather(weather) {
 
+    const weatherContainer =
+        document.getElementById("weather-container");
+
     weatherContainer.innerHTML = "";
 
-    const card = document.createElement("div");
+    const card =
+        document.createElement("div");
 
     card.classList.add("weather-card");
 
     card.innerHTML = `
+
         <h2>${weather.city}</h2>
 
-        <h3>${weather.temperature}°C</h3>
+        <h1>${weather.temperature}°C</h1>
 
-        <p>${weather.condition}</p>
+        <p><strong>${weather.condition}</strong></p>
+
+        <p>Feels Like: ${weather.feelsLike}°C</p>
+
+        <p>Humidity: ${weather.humidity}%</p>
+
+        <p>Wind: ${weather.wind} km/h</p>
+
     `;
 
     weatherContainer.appendChild(card);
