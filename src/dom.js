@@ -76,13 +76,19 @@ export function setupSearch() {
 
             document.getElementById("weather-container").innerHTML = `
 
-                <div class="weather-card">
+        <div class="weather-card">
 
-                    <h2>Unable to load weather.</h2>
+            <h2>❌ City Not Found</h2>
 
-                </div>
+            <p>
 
-            `;
+                Please check the spelling and try again.
+
+            </p>
+
+        </div>
+
+    `;
 
         }
 

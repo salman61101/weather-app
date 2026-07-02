@@ -54,20 +54,26 @@ export function displayWeather(weather, unit) {
             : "mph";
 
     card.innerHTML = `
+    <h2>${weather.city}</h2>
 
-        <h2>${weather.city}</h2>
+    <p>${weather.date}</p>
 
-        <h1>${weather.temperature}${temperatureUnit}</h1>
+    <h1>${weather.temperature}${temperatureUnit}</h1>
 
-        <p><strong>${weather.condition}</strong></p>
+    <h3>${weather.condition}</h3>
 
-        <p>Feels Like: ${weather.feelsLike}${temperatureUnit}</p>
+    <img
+        src="https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/${weather.icon}.png"
+        alt="${weather.condition}"
+        width="120"
+    >
 
-        <p>Humidity: ${weather.humidity}%</p>
+    <p>Feels Like: ${weather.feelsLike}${temperatureUnit}</p>
 
-        <p>Wind: ${weather.wind} ${windUnit}</p>
+    <p>Humidity: ${weather.humidity}%</p>
 
-    `;
+    <p>Wind: ${weather.wind} ${windUnit}</p>
+`;
 
     weatherContainer.appendChild(card);
 

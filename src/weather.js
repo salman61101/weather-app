@@ -2,20 +2,21 @@ export function processWeatherData(data) {
 
     return {
 
-        city: data.resolvedAddress,
+    city: data.resolvedAddress,
 
-        temperature: data.currentConditions.temp,
+    temperature: data.currentConditions.temp,
 
-        condition: data.currentConditions.conditions,
+    condition: data.currentConditions.conditions,
 
-        humidity: data.currentConditions.humidity,
+    humidity: data.currentConditions.humidity,
 
-        wind: data.currentConditions.windspeed,
+    wind: data.currentConditions.windspeed,
 
-        feelsLike: data.currentConditions.feelslike,
+    feelsLike: data.currentConditions.feelslike,
 
-        icon: data.currentConditions.icon
+    icon: data.currentConditions.icon,
 
-    };
+    date: data.days[0].datetime
 
+};
 }
