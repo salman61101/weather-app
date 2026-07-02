@@ -14,3 +14,7 @@ document
 document
     .getElementById("search-form")
     .requestSubmit();
+
+document
+    .getElementById("location-input")
+    .focus();    

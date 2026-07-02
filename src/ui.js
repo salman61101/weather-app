@@ -27,7 +27,7 @@ export function showLoading() {
 
         <div class="loading">
 
-            Loading...
+            🌤 Loading weather...
 
         </div>
 
@@ -82,28 +82,44 @@ export function displayWeather(weather, unit) {
     const condition =
         weather.condition.toLowerCase();
 
-    if (condition.includes("sun")) {
+    if (
+    condition.includes("clear") ||
+    condition.includes("sun")
+) {
 
-        document.body.classList.add("sunny");
+    document.body.classList.add("sunny");
 
-    }
+}
 
-    else if (condition.includes("cloud")) {
+else if (
+    condition.includes("cloud")
+) {
 
-        document.body.classList.add("cloudy");
+    document.body.classList.add("cloudy");
 
-    }
+}
 
-    else if (condition.includes("rain")) {
+else if (
+    condition.includes("rain") ||
+    condition.includes("drizzle")
+) {
 
-        document.body.classList.add("rainy");
+    document.body.classList.add("rainy");
 
-    }
+}
 
-    else {
+else if (
+    condition.includes("snow")
+) {
 
-        document.body.classList.add("default-weather");
+    document.body.style.background = "#dfe9f3";
 
-    }
+}
+
+else {
+
+    document.body.classList.add("default-weather");
+
+}
 
 }
