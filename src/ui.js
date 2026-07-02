@@ -10,42 +10,94 @@ export function displayWelcome() {
     card.classList.add("weather-card");
 
     card.innerHTML = `
+
         <h2>Welcome!</h2>
+
         <p>Search for any city to view its weather.</p>
+
     `;
 
     weatherContainer.appendChild(card);
 
 }
 
-export function displayWeather(weather) {
+export function showLoading() {
 
-    const weatherContainer =
-        document.getElementById("weather-container");
+    weatherContainer.innerHTML = `
+
+        <div class="loading">
+
+            Loading...
+
+        </div>
+
+    `;
+
+}
+
+export function displayWeather(weather, unit) {
 
     weatherContainer.innerHTML = "";
 
-    const card =
-        document.createElement("div");
+    const card = document.createElement("div");
 
     card.classList.add("weather-card");
+
+    const temperatureUnit =
+        unit === "metric"
+            ? "°C"
+            : "°F";
+
+    const windUnit =
+        unit === "metric"
+            ? "km/h"
+            : "mph";
 
     card.innerHTML = `
 
         <h2>${weather.city}</h2>
 
-        <h1>${weather.temperature}°C</h1>
+        <h1>${weather.temperature}${temperatureUnit}</h1>
 
         <p><strong>${weather.condition}</strong></p>
 
-        <p>Feels Like: ${weather.feelsLike}°C</p>
+        <p>Feels Like: ${weather.feelsLike}${temperatureUnit}</p>
 
         <p>Humidity: ${weather.humidity}%</p>
 
-        <p>Wind: ${weather.wind} km/h</p>
+        <p>Wind: ${weather.wind} ${windUnit}</p>
 
     `;
 
     weatherContainer.appendChild(card);
+
+    document.body.className = "";
+
+    const condition =
+        weather.condition.toLowerCase();
+
+    if (condition.includes("sun")) {
+
+        document.body.classList.add("sunny");
+
+    }
+
+    else if (condition.includes("cloud")) {
+
+        document.body.classList.add("cloudy");
+
+    }
+
+    else if (condition.includes("rain")) {
+
+        document.body.classList.add("rainy");
+
+    }
+
+    else {
+
+        document.body.classList.add("default-weather");
+
+    }
 
 }

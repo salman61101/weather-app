@@ -61,7 +61,7 @@ button:hover {
 }
 
 #weather-container {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     padding: 30px;
     border-radius: 15px;
@@ -96,4 +96,30 @@ button:hover {
         width: 100%;
     }
 
+}
+
+.loading {
+    text-align: center;
+    font-size: 22px;
+    padding: 50px;
+}
+
+.sunny {
+    background: #f9c74f;
+}
+
+.cloudy {
+    background: #90a4ae;
+}
+
+.rainy {
+    background: #4fc3f7;
+}
+
+.default-weather {
+    background: #546e7a;
+}
+
+.weather-card {
+    transition: .3s;
 }
